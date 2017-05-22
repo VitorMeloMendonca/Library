@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html ng-app="library">
+<head>
+    <title>Library</title>
+    <meta charset="utf-8" />
+
+    <!-- Style -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+
+    <!-- JS -->
+    <script src="scripts/jquery-1.9.1.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="config.js"></script>
+
+    <!-- Controller -->
+    <script src="controller/NavController.js"></script>
+    <script src="controller/HomeController.js"></script>
+    <script src="controller/LibraryController.js"></script>
+    <script src="controller/BookController.js"></script>
+    <script src="controller/AuthorController.js"></script>
+    <!-- Service -->
+
+    <!-- Factory -->
+    <script src="factories/LibraryFactory.js"></script>
+
+    <!-- Directive -->
+
+
+</head>
+<body>
+    <div>
+        <div class="page-header">
+            <h1>Library <small>Subtext for header</small></h1>
+        </div>
+    </div>
+    <div>
+        <nav>
+            <ul class="nav nav-tabs" ng-controller="NavController">
+                <li role="presentation" ng-class="{active: $route.current.tab == 'home'}"><a ng-click="changeTab('/')">Home</a></li>
+                <li role="presentation" ng-class="{active: $route.current.tab == 'library'}"><a ng-click="changeTab('/Library')">Library</a></li>
+                <li role="presentation" ng-class="{active: $route.current.tab == 'book'}"><a ng-click="changeTab('/Book')">Book</a></li>
+                <li role="presentation" ng-class="{active: $route.current.tab == 'author'}"><a ng-click="changeTab('/Author')">Author</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div>
+        <ng-view></ng-view>
+    </div>
+
+</body>
+</html>

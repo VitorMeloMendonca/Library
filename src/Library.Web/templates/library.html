@@ -1,0 +1,32 @@
+﻿<form name="libraryForm">
+    <div>
+        <h2>{{Library.Title}}</h2>
+        <div id="formGroup">
+            <div class="form-group">
+                <label for="role">Role</label>
+                <input type="text" class="form-control" name="role" aria-describedby="emailHelp" placeholder="Enter role" ng-model="Role.Name" required>
+                <small id="emailHelp" class="form-text text-muted">Information about the roles.</small>
+            </div>
+        </div>
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-primary" ng-click="SaveRole()" ng-if="formRole.$valid">Save</button>
+            <button type="button" class="btn btn-primary" ng-click="SaveAllRole()">Save All</button>
+        </div>
+        <div class="grid">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in ListLibraries | orderBy: 'Name'">
+                        <th scope="row">{{r.LibraryID}}</th>
+                        <td>{{r.Name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>
